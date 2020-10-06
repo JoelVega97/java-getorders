@@ -1,5 +1,7 @@
 package com.work.orders.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -21,6 +23,7 @@ public class Orders {
     //custcode MTO
     @ManyToOne
     @JoinColumn(name = "custcode", nullable = false)
+    @JsonIgnoreProperties(value = "ordersList", allowSetters = true)
     private Customers customer;
 
     //payments MTM
@@ -28,6 +31,7 @@ public class Orders {
     @JoinTable(name = "orderspayments",
             joinColumns = @JoinColumn(name = "ordnum"),
             inverseJoinColumns = @JoinColumn(name = "paymentid"))
+    @JsonIgnoreProperties(value = "orders", allowSetters = true)
     private Set<Payments> payments = new HashSet<>();
 
     public Orders() {

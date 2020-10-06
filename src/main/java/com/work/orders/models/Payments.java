@@ -1,5 +1,7 @@
 package com.work.orders.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -16,6 +18,7 @@ public class Payments {
     private String type;
 
     @ManyToMany(mappedBy = "payments")
+    @JsonIgnoreProperties(value = "payments")
     private Set<Orders> orders = new HashSet<>();
 
     public Payments() {

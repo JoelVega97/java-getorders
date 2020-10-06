@@ -1,5 +1,7 @@
 package com.work.orders.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +41,7 @@ public class Customers {
     private Agents agent;
     //OTM orders
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "customer", allowSetters = true)
     private List<Orders> ordersList = new ArrayList<>();
 
     public Customers() {
@@ -163,5 +166,13 @@ public class Customers {
 
     public void setAgent(Agents agent) {
         this.agent = agent;
+    }
+
+    public List<Orders> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Orders> ordersList) {
+        this.ordersList = ordersList;
     }
 }
