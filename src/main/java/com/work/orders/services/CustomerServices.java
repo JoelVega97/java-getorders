@@ -10,4 +10,5 @@ public interface CustomerServices {
 
     List<Customers> findAllCustomers();
 
+    Customers findCustomerById(long id);
 }
