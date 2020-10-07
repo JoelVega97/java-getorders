@@ -48,11 +48,11 @@ public class Orders {
         this.orderdescription = orderdescription;
     }
 
-    public long getOrdernum() {
+    public long getOrdnum() {
         return ordnum;
     }
 
-    public void setOrdernum(long ordernum) {
+    public void setOrdnum(long ordernum) {
         this.ordnum = ordernum;
     }
 

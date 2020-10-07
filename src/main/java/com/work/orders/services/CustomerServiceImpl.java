@@ -36,4 +36,10 @@ public class CustomerServiceImpl implements CustomerServices {
                 .orElseThrow(() -> new EntityNotFoundException("Customer " + id + " Not Found"));
         return rtnGet ;
     }
+
+    @Override
+    public List<Customers> findCustomersByLikeName(String subname) {
+        List<Customers> rtnList = cstrepo.findByCustnameContainingIgnoringCase(subname);
+        return rtnList;
+    }
 }

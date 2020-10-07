@@ -35,15 +35,12 @@ public class CustomerController {
     //http://localhost:2019/customers/customer/77 ERR
 
     //http://localhost:2019/customers/namelike/mes
-//    @GetMapping(value = "namelike/{custname}", produces = {"appilcation/json"})
-//    public ResponseEntity<?> findCustomerLikeName(@PathVariable String subname){
-//        List<Customers> rtnList = CustomerServices.findCustomerByLikeName(subname);
-//        return new ResponseEntity<>(rtnList, HttpStatus.OK);
-//    }
+    @GetMapping(value = "/namelike/{subname}", produces = {"application/json"})
+    public ResponseEntity<?> findCustomerLikeName(@PathVariable String subname){
+        List<Customers> rtnList = cstmrsrvcs.findCustomersByLikeName(subname);
+        return new ResponseEntity<>(rtnList, HttpStatus.OK);
+    }
     //http://localhost:2019/customers/namelike/cin EMPTY ARR
 
-    //http://localhost:2019/agents/agent/9
-
-    //http://localhost:2019/orders/order/7
 
 }
